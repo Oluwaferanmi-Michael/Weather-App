@@ -26,41 +26,40 @@ class _HomePageState extends State<HomePage> {
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF131313),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _controller, 
-              decoration: InputDecoration(
-                border: null,
-                hintText: 'Start Typing',
-                
-                hintStyle: GoogleFonts.spaceGrotesk(
-                  fontSize: 24,
-                  color: const Color(0xFFE4E4E4)
-                ), 
+      body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextFormField(
+                textAlign: TextAlign.center,
+                controller: _controller,
+                style:
+                    GoogleFonts.spaceGrotesk(fontSize: 24, color: Colors.white),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Start Typing',
+                  hintStyle: GoogleFonts.spaceGrotesk(
+                      fontSize: 24, color: Colors.white24),
+                ),
               ),
-            ),
-
-
-            TextButton(
-              onPressed: () async {
-                final location = Location(name: _controller.text);
-                _controller.clear();
-                LocationBook().add(location: location);
-                await Navigator.of(context).push(MaterialPageRoute(builder: (context) => HistoryPage()
-                ));
-              },
-              child: const Text('search'))
-          ],
-        )
-      ),
+              TextButton(
+                  onPressed: () async {
+                    final location = Location(name: _controller.text);
+                    _controller.clear();
+                    LocationBook().add(location: location);
+                    await Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HistoryPage()));
+                  },
+                  child: const Text('search'))
+            ],
+          )),
     );
   }
 }
