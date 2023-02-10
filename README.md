@@ -5,4 +5,4 @@ Throughout every iteration a different technique would be used to manage the app
 ### ValueNotifier
 1st App uses the **ValueNotifier** Technique to manage state
 Value Notifier is one of flutters default state management ways: it works by simply updating the state based on the values
-ie when a value is replaced with something that is not equal to the old value as evaluated by the equaliy operator **==**, the Value notifier the notifies its listeners
+ie when a value is replaced with something that is not equal to the old value as evaluated by the equaliy operator **(==)**, the Value notifier the notifies its listeners
