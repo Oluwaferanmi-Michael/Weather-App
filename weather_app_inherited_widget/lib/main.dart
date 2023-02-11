@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_inherited_widget/mock/class_api.dart';
 
+import 'mock/api_provider.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -13,7 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomePage(),
+      home: ApiProvider(
+        api: Api(),
+        child: const HomePage()),
     );
   }
 }
