@@ -1,0 +1,4 @@
+#Mon Feb 13 20:40:11 MST 2023
+base.0=C\:\\Users\\CUTEST\\Documents\\Flutter Projects\\State Management\\weather_app_inherited_model\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
