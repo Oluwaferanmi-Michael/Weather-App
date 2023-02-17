@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app_inherited_notifier/helpers/ext.dart';
 import 'package:weather_app_inherited_notifier/notifiers/slider.dart';
 
-import '../notifiers/slider_Inherited_notifier.dart';
+import '../notifiers/slider_inherited_notifier.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
