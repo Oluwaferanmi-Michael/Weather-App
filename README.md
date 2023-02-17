@@ -1,6 +1,10 @@
 # Weather-App
 Creating the same weather application with multiple state management techniques
-Throughout every iteration a different technique would be used to manage the app state, saving its searches to a history section and the abillity to delete from the history section
+
+### By definition
+`State is information that (1) can be read synchronously when the widget is built and (2) might change during the lifetime of the widget. It is the responsibility of the widget implementer to ensure that the State is promptly notified when such state changes`
+
+Throughout every iteration a different technique would be used to manage the app state,
 
 ### 1. ValueNotifier
 1st App uses the **ValueNotifier** Technique to manage state
@@ -9,4 +13,15 @@ ie when a value is replaced with something that is not equal to the old value as
 
 ### 2. Inherited Widget
 2nd app Uses the **Inherited Widget** technique I used primarily for themeing and asset management
-Inherited Widgets is used to pass information down the widget tree rather than having it built in to every method, class, or Object. Inheriited Widgets are immutable yet 'changeable' like a hybrid class of Stateless and Stateful widgets, Inherited widgets can be reassigned values using the in-built `updateShouldNotify` method. A real life example say theres an notice board handing out phone numbers to the nearest call center and everytime the number is updated you'd have to go back and collect the new number(state), with inherited widgets everyone would just receive the updated numbers automatically and be in tune with the change as long as it is not equal to the old widget value.
+Inherited Widgets are used to pass information down the widget tree rather than having it built in to every method, class, or Object. Inheriited Widgets are immutable, they use a constant constructor yet 'changeable' when inserted(wrapped, embedded) in a stateful widget like a hybrid class of Stateless and Stateful widgets, Inherited widgets can be reassigned values using the in-built `updateShouldNotify` method. 
+
+The biggest difference between an inherited widget and a stateful widget is that when `setState` is called in a stateful widget, depending on if the data(state) changed or not each widget would be redrawn and inherited widget gives you the ability to check using the `updateShouldNotify` method and decide whether or not they should be redrawn.
+
+A real life analogy: say theres an notice board handing out phone numbers to the nearest emergency call center and everytime the number is updated you'd have to go back and collect the new number(state), with inherited widgets everyone would just receive the updated numbers automatically and the board then decides whether or not people should receive this new number. if the board decides no(false) nothing gets updated, if yes(true) everyone would get the update.
+
+### 3. Inherited Model
+While very similar with Inherited widget it's like a level up of the Inherited widget
+The Inherited Model has the ability to select which aspects of your data(state) should change,
+With the inherited Widget all aspects of the children in the widget tree will get updated in the inherited widgets state has changed but the Inherited model on the contrary would check for what part(aspects) of the children has changed and would update that instead of everyone. to achieve this the Inherited Model uses the `updateShouldNotifyDependencies` method.
+
+using the analogy above the eventuality if using an inherited model would be that the board nw has the freedom to decide who gets the new information and only those people will be updated.
