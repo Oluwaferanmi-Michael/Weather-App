@@ -14,11 +14,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var color1 = Colors.yellow;
-    var color2 = Colors.blue;
+    Color color1 = Colors.green;
+    Color color2 = Colors.red;
 
     return Scaffold(
-      appBar: AppBar(),
+        appBar: AppBar(),
         body: ColorsModel(
             color1: color1,
             color2: color2,
@@ -30,7 +30,6 @@ class _HomePageState extends State<HomePage> {
                         setState(() {
                           color1 = colors.getRandomElement();
                         });
-                        
                       },
                       child: const Text('first color')),
                   TextButton(
@@ -42,8 +41,8 @@ class _HomePageState extends State<HomePage> {
                       child: const Text('second color')),
                 ],
               ),
-              const ColorBox(color: AvailableColors.colorOne),
-              const ColorBox(color: AvailableColors.colorTwo)
+              const ColorBox(color: AvailableColors.one),
+              const ColorBox(color: AvailableColors.two)
             ])));
   }
 }

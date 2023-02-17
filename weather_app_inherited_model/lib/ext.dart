@@ -3,7 +3,7 @@ import 'dart:developer' as devtools show log;
 
 import 'package:flutter/material.dart';
 
-extension RandomElement<T> on Iterable {
+extension RandomElement<T> on Iterable<T> {
   T getRandomElement() => elementAt(math.Random().nextInt(length));
 }
 
@@ -12,9 +12,7 @@ extension RandomElement<T> on Iterable {
 // }
 
 final colors = [
-  Colors.red,
   Colors.blue,
-  Colors.green,
   Colors.yellow,
   Colors.cyan,
   Colors.black,
@@ -24,6 +22,6 @@ final colors = [
 ];
 
 enum AvailableColors{
-  colorOne,
-  colorTwo
+  one,
+  two
 }

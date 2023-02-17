@@ -6,15 +6,15 @@ import 'package:weather_app_inherited_model/models/colors_model.dart';
 class ColorBox extends StatelessWidget {
   final AvailableColors color;
 
-  const ColorBox({super.key, required this.color});
+  const ColorBox({Key? key, required this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     switch (color) {
-      case AvailableColors.colorOne:
+      case AvailableColors.one:
       devtools.log('color1 got rebuilt');
       break;
-      case AvailableColors.colorTwo:
+      case AvailableColors.two:
       devtools.log('color1 got rebuilt'); 
         break;
     }
@@ -24,7 +24,7 @@ class ColorBox extends StatelessWidget {
     return Container(
       height: 200,
       width: MediaQuery.of(context).size.width,
-      color: color == AvailableColors.colorOne ? provider?.color1 : provider?.color2
+      color: color == AvailableColors.one ? provider.color1 : provider.color2
     );
   }
 }
