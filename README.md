@@ -25,3 +25,6 @@ The Inherited Model has the ability to select which aspects of your data(state) 
 With the inherited Widget all aspects of the children in the widget tree will get updated in the inherited widgets state has changed but the Inherited model on the contrary would check for what part(aspects) of the children has changed and would update that instead of everyone. to achieve this the Inherited Model uses the `updateShouldNotifyDependencies` method.
 
 using the analogy above the eventuality if using an inherited model would be that the board nw has the freedom to decide who gets the new information and only those people will be updated.
+
+### 3. Inherited Notifier and Change Notifier
+(The main difference between Inh widg and Inh Noti is that while Inherited Widget holds on to it's own values, the Inh Not doesnt, instead it refers and holds on to listenables like the Change Notifier, StateNotifier and ValueNotifier, )
