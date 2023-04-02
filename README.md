@@ -28,3 +28,10 @@ using the analogy above the eventuality if using an inherited model would be tha
 
 ### 3. Inherited Notifier and Change Notifier
 (The main difference between Inh widg and Inh Noti is that while Inherited Widget holds on to it's own values, the Inh Not doesnt, instead it refers and holds on to listenables like the Change Notifier, StateNotifier and ValueNotifier, )
+
+### 4. Flutter Hooks
+Honestly I don't know what to say I'm pained I didnt find this solution earlier in my flutter journey...but I just did and I understand it.
+
+So Flutter hooks, an idea borrowed from React Hooks as a way(pattern) of implementing and managing state and actions w/o the use of a stateful widget; Although because of the Hot reload and restart function that flutter has, the hooks system has to be run from the build() method of a HookWidget(similar to Stateless Widgets) a primary concern would be the app becomes overloaded because it will constantly rebuild thanks to the hooks management and change of app state, this can be fixed however with hooks like `useMemoized` and `useMemory` that remember and preserve app state.
+
+Flutter hooks are a way to use code w/o having to re-write boiler-plate over and over, it's also a nice alternative to mixins.
