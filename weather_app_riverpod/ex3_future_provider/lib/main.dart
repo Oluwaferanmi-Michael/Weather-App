@@ -1,7 +1,8 @@
-import 'package:ex2/pages/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'pages/home_page.dart';
 
 void main(){
   runApp(
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      themeMode: ThemeMode.dark,
+      // themeMode: ThemeMode.dark(),
+      // darkTheme: ThemeMode.dark,
       home: HomePage(),
     );
   }
