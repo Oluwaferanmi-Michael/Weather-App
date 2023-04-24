@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "339753750988",
+    "project_id": "learning-instantclone",
+    "storage_bucket": "learning-instantclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339753750988:android:3005a2c2b4d0a268a78d69",
+        "android_client_info": {
+          "package_name": "com.example.insta_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339753750988-23tierdtj2gkt7s03ost2nh3spfbming.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiifuNU1EyXOEJQ-uBwC1RdxfJ0QGmLP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339753750988-23tierdtj2gkt7s03ost2nh3spfbming.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
