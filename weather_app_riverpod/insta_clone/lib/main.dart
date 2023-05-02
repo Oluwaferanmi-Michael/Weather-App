@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:insta_clone/pages/auth.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -7,7 +9,7 @@ void main() async {
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
-runApp(const MainApp());
+runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -18,9 +20,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       darkTheme: ThemeData.dark(),
-      home: const Scaffold(
-        body: Center(),
-      ),
+      home: const HomePage()
     );
   }
 }
