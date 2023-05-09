@@ -1,34 +1,36 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:insta_clone/helpers/ext.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:insta_clone/state/auth/providers/is_logged_in_provider.dart';
+import 'package:insta_clone/views/components/loading/loading_screen.dart';
 
-
-import 'package:insta_clone/state/auth/backend/authenticator.dart';
+import '../state/providers/is_loading_provider.dart';
+import 'login.dart';
+import 'main_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: () async {
-              final result = Authenticator().loginWithGoogle();
-              result.log();},
-            child: const Text('Sign in with Google')
-          ),
-
-          TextButton(
-            onPressed: () async {
-              final result = Authenticator().logInWithFacebook();
-              result.log();},
-            child: const Text('Sign in with Facebook')
-          )
-        ],
-      ),
+    return Consumer(
+      builder: (context, ref, child) {
+        ref.listen(isLoadingProvider, (previous, isLoading) {
+          if(isLoading) {
+            LoadingScreen.instance().show(context: context, text: 'Cheee');
+          } else {
+            LoadingScreen.instance().hide();
+          }
+        },);
+        
+        final isLoggedIn = ref.watch(isLoggedInProvider);
+        if (isLoggedIn){
+          return const MainView();
+        }
+        else {
+          return const LoginView();
+        }
+      },
     );
   }
 }
+

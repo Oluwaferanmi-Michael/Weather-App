@@ -13,7 +13,7 @@ class AuthState{
     required this.isLoading,
     required this.userId
   });
-
+ 
   const AuthState.unknown() : result = null, isLoading = false, userId = null;
 
   AuthState copyWith(bool isLoading) => AuthState(result: result, isLoading: isLoading, userId: userId);

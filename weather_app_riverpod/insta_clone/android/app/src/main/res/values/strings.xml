@@ -3,5 +3,5 @@
     <string name="facebook_app_id">1908783592823155</string>
     <string name="fb_login_protocol_scheme">fb1908783592823155</string>
     <string name="facebook_client_token">64caf42844d9470c4e62c4f3ff1e6973</string>
-    <string name="app_name">instant clone learning</string>
+    <string name="app_name">instant-clone-learning</string>
 </resources>
