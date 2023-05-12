@@ -1,5 +1,4 @@
 
-import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:insta_clone/models/auth_results.dart';
 import 'package:insta_clone/state/auth/backend/authenticator.dart';

@@ -3,6 +3,9 @@ description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
 
+assets:
+  -assets/animations/
+
 environment:
   sdk: '>=2.19.5 <3.0.0'
 

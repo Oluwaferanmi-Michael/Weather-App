@@ -1,6 +1,6 @@
-import '../views/components/loading/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:insta_clone/views/components/animations/data_not_found_anim.dart';
 
 import '../state/auth/providers/auth_state_provider.dart';
 
@@ -16,9 +16,12 @@ class MainView extends StatelessWidget {
         children: [
           const Text('LoggedIn'),
           Consumer(
-            builder: ((context, ref, child) => TextButton(onPressed: () async =>
-              await ref.read(authStateProvider.notifier).logOut()
-              ,child: const Text('LogOut'))))
+            builder: (context, ref, child) => DataNotFoundAnim()
+            // TextButton(onPressed: () async =>
+            //   await ref.read(authStateProvider.notifier).logOut()
+            //   ,child: const Text('LogOut')
+            //   )
+            )
         ],
       ),)
     );
