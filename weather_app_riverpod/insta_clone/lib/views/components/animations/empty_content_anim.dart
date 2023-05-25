@@ -16,6 +16,7 @@ class EmptyContentWithText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(text,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),),

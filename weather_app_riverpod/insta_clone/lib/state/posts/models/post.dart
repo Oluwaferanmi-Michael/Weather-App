@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:insta_clone/state/image_upload/models/file_type.dart';
 import 'package:insta_clone/state/post_settings/models/post_setting.dart';
 
@@ -22,12 +23,13 @@ class Post{
     required Map<String, dynamic>json
   }) : userId = json[PostKey.userId],
        message = json[PostKey.message],
-       createdAt = json[PostKey.createdAt],
+       createdAt = (json[PostKey.createdAt] as Timestamp).toDate(),
        thumbnailUrl = json[PostKey.thumbnailUrl],
        fileUrl = json[PostKey.fileUrl],
        fileType = FileType.values.firstWhere((element) => element.name == json[PostKey.fileType], orElse: () => FileType.image),
        fileName = json[PostKey.fileName],
        aspectRatio = json[PostKey.aspectRatio],
+       
        postSettings = {
         for (final entry in json[PostKey.postSettings].entries)
         PostSetting.values.firstWhere((element) => element.storageKey == entry.key): entry.value,

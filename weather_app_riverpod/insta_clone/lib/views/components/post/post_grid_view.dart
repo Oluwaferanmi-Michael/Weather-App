@@ -19,7 +19,9 @@ class PostGridView extends StatelessWidget {
         ), itemCount: posts.length,
         itemBuilder: (context, index) {
           final post = posts.elementAt(index);
-          return PostThumbNailView(post: post, onPressed: () {});
+          return PostThumbNailView(post: post, onPressed: () {
+            // TODO: Navigatr to Post Detail view;
+          });
         }),
       ),
     );

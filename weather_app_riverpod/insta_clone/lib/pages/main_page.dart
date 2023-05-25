@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:insta_clone/state/image_upload/helper/image_picker_helper.dart';
+import 'package:insta_clone/state/post_settings/provider/post_settings_provider.dart';
 import 'package:insta_clone/views/components/constants/strings.dart';
 import 'package:insta_clone/views/components/dialogs/alert_dialog_model.dart';
 import 'package:insta_clone/views/components/dialogs/log_out_dialog.dart';
+import 'package:insta_clone/views/create_new_post/create_new_post_view.dart';
 import 'package:insta_clone/views/tabs/user_posts/user_posts_view.dart';
 import '../state/auth/providers/auth_state_provider.dart';
+import '../state/image_upload/models/file_type.dart';
 
 class MainView extends ConsumerStatefulWidget {
   const MainView({super.key});
@@ -24,17 +28,44 @@ class _MainViewState extends ConsumerState<MainView> {
           title: const Text(Strings.instantGram),
           actions: [
             IconButton(
-              onPressed: () async {},
-              icon: const FaIcon(FontAwesomeIcons.fill)
+              onPressed: () async {
+                final videoFile = await ImagePickerHelper.pickVideoFromGallery();
+                if (videoFile == null) {
+                  return;
+                } 
+                ref.refresh(postSettingProvider);
+                // go to screen to post
+                if (!mounted) {
+                  return;
+                }
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                  return CreateNewPostView(fileToPost: videoFile, fileType: FileType.video);
+                }));
+              },
+              icon: const FaIcon(FontAwesomeIcons.film)
             ),
+
             IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                final imageFile = await ImagePickerHelper.pickImageFromGallery();
+                if (imageFile == null) {
+                  return;
+                } 
+                ref.refresh(postSettingProvider);
+                // got to Screen to post
+                if (!mounted) {
+                  return;
+                }
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                  return CreateNewPostView(fileToPost: imageFile, fileType: FileType.image);
+                }));
+              },
               icon: const Icon(Icons.add_photo_alternate)
             ),
+
             IconButton(
               onPressed: () async {
                 final shouldLogOut = await LogOutDialog().present(context).then((value) => value ?? false);
-
                 if (shouldLogOut) {
                   await ref.read(authStateProvider.notifier).logOut();
                 }
@@ -45,13 +76,13 @@ class _MainViewState extends ConsumerState<MainView> {
 
           bottom: const TabBar(
             tabs: [
-              Icon(Icons.person),
-              Icon(Icons.search),
-              Icon(Icons.home),
+              Tab(child: Icon(Icons.person)),
+              Tab(child: Icon(Icons.search)),
+              Tab(child: Icon(Icons.home)),
             ]),
         ),
 
-        body: TabBarView(children: [
+        body: const TabBarView(children: [
           UserPostsView(),
           UserPostsView(),
           UserPostsView(),

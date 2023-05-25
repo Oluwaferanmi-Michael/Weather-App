@@ -1,8 +1,8 @@
 import 'dart:collection';
 
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:insta_clone/state/auth/constants/firebase_field_names.dart';
 
+import '../../constants/firebase_field_names.dart';
 import '../../posts/typedefs/user_id.dart';
 
 

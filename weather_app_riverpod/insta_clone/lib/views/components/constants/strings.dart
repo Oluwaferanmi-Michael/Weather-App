@@ -53,6 +53,8 @@ class Strings {
   static const signUpOn = ' Sign Up on ';
   static const createAnAccount = 'or Create an Account on ';
 
+  static const createNewPost = 'Create new Post';
+
 
 
  const Strings._();

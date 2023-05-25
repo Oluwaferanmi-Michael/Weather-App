@@ -1,8 +1,6 @@
 
 
 enum LottieAnimation{
-  
-
   dataNotFound(name: 'data_not_found'),
   error(name: 'error'),
   loading(name: 'loading'),
