@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image/image.dart' as img;
@@ -25,7 +24,6 @@ class ImageUploadNotifier extends StateNotifier<IsLoading> {
   ImageUploadNotifier() : super(false);
 
   set isLoading(bool value) => state = value;
-  // get isLoading => state;
 
   Future<bool> upload({
     required File file,
@@ -49,6 +47,7 @@ class ImageUploadNotifier extends StateNotifier<IsLoading> {
         final thumbnailData = img.encodeJpg(thumbnail);
         thumbnailUint8 = Uint8List.fromList(thumbnailData);
         break;
+
       case FileType.video:
         final thumb = await VideoThumbnail.thumbnailData(
           video: file.path,
@@ -71,11 +70,12 @@ class ImageUploadNotifier extends StateNotifier<IsLoading> {
     // calculate references
     final fileName = const Uuid().v4();
 
-    final thumbnailRef = FirebaseStorage.instance.ref().child(
+    final thumbnailRef = FirebaseStorage.instance.ref()
+    .child(
       userId
-    ). child(FirebaseCollectionName.thumbnails). child(fileName);
+    ).child(FirebaseCollectionName.thumbnails).child(fileName);
 
-    final originalFileRef = FirebaseStorage.instance.ref().child(fileType.collectionName);
+    final originalFileRef = FirebaseStorage.instance.ref().child(userId).child(fileType.collectionName).child(fileName);
 
 
     try {

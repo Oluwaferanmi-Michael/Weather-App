@@ -1,4 +1,4 @@
-
+import 'package:insta_clone/views/post_comments/post_comments.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_clone/state/posts/models/post.dart';
 import 'package:insta_clone/views/components/post/post_thumb_view.dart';
@@ -20,7 +20,12 @@ class PostGridView extends StatelessWidget {
         itemBuilder: (context, index) {
           final post = posts.elementAt(index);
           return PostThumbNailView(post: post, onPressed: () {
-            // TODO: Navigatr to Post Detail view;
+            // Navigator.push(context, MaterialPageRoute(
+            //   builder: (_) => PostCommentsView(
+            //     postId: post.postId
+            //   )
+            // )
+            // );
           });
         }),
       ),

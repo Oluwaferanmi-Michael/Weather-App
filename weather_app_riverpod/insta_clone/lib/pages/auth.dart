@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
         // take care of displaying loading screen
         ref.listen(isLoadingProvider, (_, isLoading) {
           if(isLoading) {
-            LoadingScreen.instance().show(context: context, text: 'Cheee');
+            LoadingScreen.instance().show(context: context, text: 'Loading');
           } else {
             LoadingScreen.instance().hide();
           }

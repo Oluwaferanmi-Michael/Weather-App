@@ -26,16 +26,25 @@ class Post{
        createdAt = (json[PostKey.createdAt] as Timestamp).toDate(),
        thumbnailUrl = json[PostKey.thumbnailUrl],
        fileUrl = json[PostKey.fileUrl],
-       fileType = FileType.values.firstWhere((element) => element.name == json[PostKey.fileType], orElse: () => FileType.image),
+       fileType = FileType.values.firstWhere((fileType) => fileType.name == json[PostKey.fileType], orElse: () => FileType.image),
        fileName = json[PostKey.fileName],
        aspectRatio = json[PostKey.aspectRatio],
-       
-       postSettings = {
-        for (final entry in json[PostKey.postSettings].entries)
-        PostSetting.values.firstWhere((element) => element.storageKey == entry.key): entry.value,
-       },
        thumbnailStorageId = json[PostKey.thumbnailStorageId],
-       originalFileStorageId = json[PostKey.originalFileStorageId];
+       originalFileStorageId = json[PostKey.originalFileStorageId],
+       
+       postSettings ={
+
+        PostSetting.allowLikes : true,
+        PostSetting.allowComments: true,};
+
+        // entry.forEach()
+
+        // for (final entry in json[PostKey.postSettings].entries)
+          // PostSetting.values.firstWhere((element) => element.storageKey == entry.key) : entry.value,
+       
+      
+
+       
 
   bool get allowLikes => postSettings[PostSetting.allowLikes] ?? false;
   bool get allowComments => postSettings[PostSetting.allowComments] ?? false;

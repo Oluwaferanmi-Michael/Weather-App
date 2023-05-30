@@ -10,11 +10,14 @@ class UserInfoStorage {
   const UserInfoStorage();
 
   
-  // check if user info is present
+  
   Future<bool> saveUserInfo({required UserId userId, required String displayName, required String? email}) async {
 
     try {
-      final userInfo = await FirebaseFirestore.instance.collection(FirebaseCollectionName.users).where(FirebaseFieldName.userId, isEqualTo: userId).limit(1).get();
+      final userInfo = await FirebaseFirestore.instance
+      .collection(FirebaseCollectionName.users)
+      // check if user info is present
+      .where(FirebaseFieldName.userId, isEqualTo: userId).limit(1).get();
 
     if(userInfo.docs.isNotEmpty){
       await userInfo.docs.first.reference.update({
@@ -24,8 +27,10 @@ class UserInfoStorage {
       return true;
     }
 
+    // User isn't present create new
     final payload = UserInfoPayload(userId: userId, displayName: displayName, email: email);
     await FirebaseFirestore.instance.collection(FirebaseCollectionName.users).add(payload);
+    
     return true;
   }
   catch (e){
