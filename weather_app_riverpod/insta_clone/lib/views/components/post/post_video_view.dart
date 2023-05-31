@@ -1,0 +1,38 @@
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:insta_clone/views/components/animations/error_anim.dart';
+import 'package:insta_clone/views/components/animations/loading_anim.dart';
+import 'package:video_player/video_player.dart';
+
+import '../../../state/posts/models/post.dart';
+
+class PostVideoView extends HookWidget {
+  final Post post;
+  const PostVideoView({super.key, required this.post});
+
+  @override
+  Widget build(BuildContext context) {
+
+    final controller = VideoPlayerController.network(post.fileUrl);
+    final isVideoPlayerReady = useState(false);
+
+    useEffect(() {
+      controller.initialize().then((value) {
+        isVideoPlayerReady.value = true;
+        controller.setLooping(true);
+        controller.play();
+      }); return controller.dispose;
+    }, [controller]);
+
+    switch (isVideoPlayerReady.value) {
+      case true:
+        return AspectRatio(aspectRatio: post.aspectRatio, child: VideoPlayer(controller));
+      case false:
+        return const LoadinAnim();
+      default:
+        return const ErrorAnim();
+    }
+  }
+}
