@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_clone/state/posts/models/post.dart';
 import 'package:insta_clone/views/components/post/post_thumb_view.dart';
-import 'package:insta_clone/views/post_details/post_details_view.dart';
+import 'package:insta_clone/views/components/post/post_details_view.dart';
 
 class PostGridView extends StatelessWidget {
   final Iterable<Post> posts;

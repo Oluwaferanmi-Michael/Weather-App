@@ -17,7 +17,7 @@ class LikeCountView extends ConsumerWidget {
       data: (int likeCount) {
         final personOrPeople = likeCount == 1 ? Strings.person : Strings.people;
 
-        final likesText = '$likesCount $personOrPeople ${Strings.likedThis}';
+        final likesText = '${likesCount.value} $personOrPeople ${Strings.likedThis}';
 
         return Text(likesText);
 

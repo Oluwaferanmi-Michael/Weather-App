@@ -37,13 +37,14 @@ final specificPostWithCommentProvider = StreamProvider.family.autoDispose<PostWi
       comments = null;
       notify();
       return;
-    } 
-    final doc = snapshot.docs.first;
-    if (doc.metadata.hasPendingWrites) {
-      return;
+    } else {
+      final doc = snapshot.docs.first;
+      if (doc.metadata.hasPendingWrites) {
+        return;
     } 
       post = Post(postId: doc.id, json: doc.data());
       notify();
+    }
   });
 
   final commentQuery = FirebaseFirestore.instance.collection(FirebaseCollectionName.comments).where(

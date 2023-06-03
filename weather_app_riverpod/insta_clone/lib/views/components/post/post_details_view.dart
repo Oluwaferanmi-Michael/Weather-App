@@ -18,9 +18,9 @@ import 'package:insta_clone/views/components/post/post_display_name_message.dart
 import 'package:insta_clone/views/post_comments/post_comments.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../state/posts/models/post.dart';
-import '../components/animations/small_error_anim.dart';
-import '../components/post/post_image_or_video_view.dart';
+import '../../../state/posts/models/post.dart';
+import '../animations/small_error_anim.dart';
+import 'post_image_or_video_view.dart';
 
 class PostDetailsView extends ConsumerStatefulWidget {
   final Post post;
@@ -118,7 +118,7 @@ class _PostDetailsViewState extends ConsumerState<PostDetailsView> {
                     ),
                   ),
 
-                  const SizedBox.expand()
+                  const SizedBox(height: 100)
                 
               ],
             ),

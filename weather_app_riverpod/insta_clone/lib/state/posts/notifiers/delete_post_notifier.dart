@@ -20,9 +20,8 @@ class DeletePostNotifier extends StateNotifier<IsLoading> {
     required Post post,
   }) async {
 
-    isLoading = true;
-
     try {
+      isLoading = true;
       // delelte thumbnail from storage
       await FirebaseStorage.instance.ref().child(post.userId).child(
       FirebaseCollectionName.thumbnails
@@ -45,7 +44,7 @@ class DeletePostNotifier extends StateNotifier<IsLoading> {
     final postInCollection = await FirebaseFirestore.instance.collection(
       FirebaseCollectionName.posts
     ).where(
-      FirebaseFieldName.postId, isEqualTo: post.postId
+      FieldPath.documentId, isEqualTo: post.postId
     ).limit(1).get();
 
     for (final post in postInCollection.docs) {

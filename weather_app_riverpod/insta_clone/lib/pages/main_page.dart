@@ -8,6 +8,7 @@ import 'package:insta_clone/views/components/constants/strings.dart';
 import 'package:insta_clone/views/components/dialogs/alert_dialog_model.dart';
 import 'package:insta_clone/views/components/dialogs/log_out_dialog.dart';
 import 'package:insta_clone/views/create_new_post/create_new_post_view.dart';
+import 'package:insta_clone/views/tabs/search_view.dart';
 import 'package:insta_clone/views/tabs/user_posts/user_posts_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../state/auth/providers/auth_state_provider.dart';
@@ -98,7 +99,7 @@ class _MainViewState extends ConsumerState<MainView> {
 
         body: const TabBarView(children: [
           UserPostsView(),
-          UserPostsView(),
+          SearchView(),
           UserPostsView(),
         ])
       ));
