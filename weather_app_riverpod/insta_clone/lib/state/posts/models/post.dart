@@ -2,11 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:insta_clone/state/image_upload/models/file_type.dart';
 import 'package:insta_clone/state/post_settings/models/post_setting.dart';
 
+import '../typedefs/post_id.dart';
+import '../typedefs/user_id.dart';
 import 'post_key.dart';
 
 class Post{
-  final String userId;
-  final String postId;
+  final UserId userId;
+  final PostId postId;
   final String message;
   final DateTime createdAt;
   final String thumbnailUrl;
@@ -20,7 +22,7 @@ class Post{
 
   Post({
     required this.postId,
-    required Map<String, dynamic>json
+    required Map<String, dynamic> json
   }) : userId = json[PostKey.userId],
        message = json[PostKey.message],
        createdAt = (json[PostKey.createdAt] as Timestamp).toDate(),
@@ -32,10 +34,10 @@ class Post{
        thumbnailStorageId = json[PostKey.thumbnailStorageId],
        originalFileStorageId = json[PostKey.originalFileStorageId],
        
-       postSettings ={
-
+       postSettings = {
         PostSetting.allowLikes : true,
-        PostSetting.allowComments: true,};
+        PostSetting.allowComments: true,
+      };
 
         // entry.forEach()
 

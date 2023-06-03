@@ -5,7 +5,7 @@ import 'package:insta_clone/views/components/animations/error_anim.dart';
 import 'package:insta_clone/views/components/animations/loading_anim.dart';
 import 'package:insta_clone/views/components/constants/strings.dart';
 
-import '../../../state/posts/providers/user_post_provider.dart';
+import '../../../state/posts/providers/user_posts_provider.dart';
 import '../../components/post/post_grid_view.dart';
 
 class UserPostsView extends ConsumerWidget {

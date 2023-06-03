@@ -18,6 +18,6 @@ class PostDisplayNameAndMessage extends ConsumerWidget {
       data: (data) => Padding(
         padding: const EdgeInsets.all(16.0),
         child: RichTwoPartText(leftPart: data.displayName, rightPart: post.message),
-      ), error: (error, stackTrace) => SmallErrorAnim(), loading: () => const CircularProgressIndicator());
+      ), error: (error, stackTrace) => const SmallErrorAnim(), loading: () => const CircularProgressIndicator());
   }
 }

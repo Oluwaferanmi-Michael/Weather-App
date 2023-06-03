@@ -9,8 +9,6 @@ import '../../constants/firebase_field_names.dart';
 class UserInfoStorage {
   const UserInfoStorage();
 
-  
-  
   Future<bool> saveUserInfo({required UserId userId, required String displayName, required String? email}) async {
 
     try {

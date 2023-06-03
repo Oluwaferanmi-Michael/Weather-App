@@ -14,7 +14,7 @@ class PostCommentRequest {
     required this.postId,
     this.sortByCreatedAt = true,
     this.dateSorting = DateSorting.newOnTop,
-    this.limit = null,
+    this.limit,
   });
 
 

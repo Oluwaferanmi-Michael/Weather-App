@@ -6,9 +6,9 @@ import 'package:insta_clone/state/posts/models/post.dart';
 import 'package:insta_clone/views/components/post/post_image_view.dart';
 import 'package:insta_clone/views/components/post/post_video_view.dart';
 
-class ImageOrVideoVideo extends StatelessWidget {
+class PostImageOrVideoView extends StatelessWidget {
   final Post post;
-  const ImageOrVideoVideo({super.key, required  this.post});
+  const PostImageOrVideoView({super.key, required  this.post});
 
   @override
   Widget build(BuildContext context) {

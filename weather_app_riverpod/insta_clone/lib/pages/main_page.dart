@@ -41,7 +41,9 @@ class _MainViewState extends ConsumerState<MainView> {
                 if (videoFile == null) {
                   return;
                 } 
+
                 ref.invalidate(postSettingProvider);
+                
                 // go to screen to post
                 if (!mounted) {
                   return;
@@ -67,8 +69,9 @@ class _MainViewState extends ConsumerState<MainView> {
                 if (!mounted) {
                   return;
                 }
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                  return CreateNewPostView(fileToPost: imageFile, fileType: FileType.image);
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) {
+                    return CreateNewPostView(fileToPost: imageFile, fileType: FileType.image);
                 }));
               },
               icon: const Icon(Icons.add_photo_alternate)

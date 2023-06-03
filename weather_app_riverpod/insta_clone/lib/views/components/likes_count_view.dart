@@ -15,7 +15,7 @@ class LikeCountView extends ConsumerWidget {
     final likesCount = ref.watch(postLikesCountProvider(post.postId));
     return likesCount.when(
       data: (int likeCount) {
-        final personOrPeople = likesCount == 1 ? Strings.person : Strings.people;
+        final personOrPeople = likeCount == 1 ? Strings.person : Strings.people;
 
         final likesText = '$likesCount $personOrPeople ${Strings.likedThis}';
 

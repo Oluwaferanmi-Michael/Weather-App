@@ -15,10 +15,10 @@ class Comment{
   final PostId onPostId;
 
   Comment( Map<String, dynamic> json, {required this.id}) : 
-  comment = json[FirebaseFieldName.comment],
-  createdAt = (json[FirebaseFieldName.createdAt] as Timestamp).toDate(),
-  fromUserId = json[FirebaseFieldName.userId],
-  onPostId = json[FirebaseFieldName.postId];
+    comment = json[FirebaseFieldName.comment],
+    createdAt = (json[FirebaseFieldName.createdAt] as Timestamp).toDate(),
+    fromUserId = json[FirebaseFieldName.userId],
+    onPostId = json[FirebaseFieldName.postId];
 
   @override
   bool operator ==(Object other) => identical(this, other) ||

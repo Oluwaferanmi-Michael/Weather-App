@@ -28,10 +28,10 @@ final userPostProvider = StreamProvider.autoDispose<Iterable<Post>>((ref) {
   .snapshots()
     .listen((snapshot) {
       final documents = snapshot.docs;
-      final posts = documents
-      .where(
+      final posts = documents.where(
         (doc) => !doc.metadata.hasPendingWrites)
       .map((doc) => Post(postId: doc.id, json: doc.data()));
+      
       controller.sink.add(posts);
   });
 

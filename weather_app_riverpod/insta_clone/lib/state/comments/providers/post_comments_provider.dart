@@ -17,11 +17,13 @@ final postCommentsProvider = StreamProvider.family.autoDispose<Iterable<Comment>
   final sub = FirebaseFirestore.instance.collection(FirebaseCollectionName.comments).where(
     FirebaseFieldName.postId, isEqualTo: request.postId
   ).snapshots().listen((event) {
-    final documents = event.docs;
-    final limitedDocuments = request.limit != null ? documents.take(request.limit!) : documents;
+    final comment = event.docs;
+    final limitedDocuments = request.limit != null ? comment.take(request.limit!) : comment;
 
-    final comments = limitedDocuments.where((doc) => !doc.metadata.hasPendingWrites)
-      .map((documents) => Comment(documents.data(), id: documents.id));
+    final comments = limitedDocuments.where(
+      (doc) => !doc.metadata.hasPendingWrites)
+      .map(
+        (documents) => Comment(documents.data(), id: documents.id));
 
     final result = comments.applySortingFrom(request);
     controller.add(result); // controller.sink.add(result) is the same

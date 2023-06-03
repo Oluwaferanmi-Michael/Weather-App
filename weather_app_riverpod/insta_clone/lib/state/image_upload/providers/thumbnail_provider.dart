@@ -7,7 +7,7 @@ import 'package:insta_clone/state/image_upload/models/image_with_aspect_ratio.da
 import 'package:insta_clone/state/image_upload/models/thumbnail_request.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 
-final thumbnailProvider = FutureProvider.family.autoDispose<ImageWithAspectRatio, ThumbnailRequest>((ref, ThumbnailRequest request)  async {
+final thumbnailProvider = FutureProvider.family.autoDispose<ImageWithAspectRatio, ThumbnailRequest>((ref, ThumbnailRequest request) async {
   final Image image;
   switch (request.fileType) {
     case FileType.image:
@@ -18,7 +18,6 @@ final thumbnailProvider = FutureProvider.family.autoDispose<ImageWithAspectRatio
       if (thumb == null) {
         throw const CouldNotBuildThumbnailException();
       } else {
-        
           image = Image.memory(thumb, fit: BoxFit.fitHeight,);
       }
       break;
