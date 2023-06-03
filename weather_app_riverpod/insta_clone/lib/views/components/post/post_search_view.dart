@@ -7,7 +7,7 @@ import 'package:insta_clone/state/posts/typedefs/search_teram.dart';
 import 'package:insta_clone/views/components/animations/data_not_found_anim.dart';
 import 'package:insta_clone/views/components/animations/empty_content_anim.dart';
 import 'package:insta_clone/views/components/constants/strings.dart';
-import 'package:insta_clone/views/components/post/post_grid_view.dart';
+import 'package:insta_clone/views/components/post/posts_sliver_grid_view.dart';
 
 import '../animations/small_error_anim.dart';
 
@@ -19,7 +19,7 @@ class SearchGridView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     if (searchTerm.isEmpty) {
-      return const EmptyContentWithText(text: Strings.enterYourSearchTerm);
+      return const SliverToBoxAdapter(child: EmptyContentWithText(text: Strings.enterYourSearchTerm));
     }
 
     final posts = ref.watch(postsBySearchTermProvider(searchTerm));
@@ -27,11 +27,11 @@ class SearchGridView extends ConsumerWidget {
     return posts.when(
       data: (posts) {
         if (posts.isEmpty) {
-          return const DataNotFoundAnim();
+          return const SliverToBoxAdapter(child: DataNotFoundAnim());
         }
 
-        return PostGridView(posts: posts);
+        return SliverPostGridView(posts: posts);
 
-      }, error: (error, stacktrace) => const SmallErrorAnim(), loading: () => const CircularProgressIndicator());
+      }, error: (error, stacktrace) => const SliverToBoxAdapter(child: SmallErrorAnim()), loading: () => const SliverToBoxAdapter(child: CircularProgressIndicator()));
   }
 }
