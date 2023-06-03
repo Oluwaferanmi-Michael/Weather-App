@@ -32,6 +32,6 @@ class SearchGridView extends ConsumerWidget {
 
         return SliverPostGridView(posts: posts);
 
-      }, error: (error, stacktrace) => const SliverToBoxAdapter(child: SmallErrorAnim()), loading: () => const SliverToBoxAdapter(child: CircularProgressIndicator()));
+      }, error: (error, stacktrace) { return const SliverToBoxAdapter(child: SmallErrorAnim());}, loading: () {return const SliverToBoxAdapter(child: CircularProgressIndicator());});
   }
 }

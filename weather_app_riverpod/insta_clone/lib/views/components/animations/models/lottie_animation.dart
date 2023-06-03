@@ -5,7 +5,7 @@ enum LottieAnimation{
   error(name: 'error'),
   loading(name: 'loading'),
   empty(name: 'empty'),
-  smallError(name: 'smallError');
+  smallError(name: 'small_error');
   
   final String name;
   const LottieAnimation({required this.name});

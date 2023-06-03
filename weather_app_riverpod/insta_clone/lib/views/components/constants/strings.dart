@@ -8,6 +8,7 @@ class Strings {
   static const allowCommentsTitle = 'Allow Comments';
   static const allowCommentsDescription = 'By allowing comments, users will be able to make comment on your post.';
   static const allowCommentsStorageKey = 'allow_comments';
+  static const noPostsinSystem = 'Noone has made any posts be the first';
 
   static const comments = 'comments';
   static const loading = 'loading';

@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:insta_clone/views/extensions/dismiss_keyboard.dart';
 
-import '../components/post/post_search_view.dart';
+import '../components/post/search_grid_view.dart';
 
 class SearchView extends HookConsumerWidget {
   const SearchView({super.key});
@@ -20,12 +20,12 @@ class SearchView extends HookConsumerWidget {
       return (){};
     }, [controller]);
 
-    return SingleChildScrollView(
-      child: CustomScrollView(
-        slivers: [
-          Padding(
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: SliverToBoxAdapter(child: TextField(
+            child: TextField(
               controller: controller,
               textInputAction: TextInputAction.search,
               decoration: InputDecoration(
@@ -37,12 +37,12 @@ class SearchView extends HookConsumerWidget {
                   }, icon: const Icon(Icons.clear),
                 )
               ),
-            )),
+            ),
           ),
+        ),
     
-          SearchGridView(searchTerm: searchTerm.value)
-        ],
-      ),
+        SearchGridView(searchTerm: searchTerm.value)
+      ],
     );
   }
 }
