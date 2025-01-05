@@ -9,6 +9,7 @@ class LoadingScreen {
   LoadingScreen._sharedInstance();
 
   static final LoadingScreen _shared = LoadingScreen._sharedInstance();
+
   factory LoadingScreen.instance() => _shared;
 
 
@@ -52,7 +53,7 @@ class LoadingScreen {
             constraints: BoxConstraints(
               maxWidth: size.width * .8,
               maxHeight: size.height * .8,
-              minWidth: size.width * .5
+              minWidth: size.width * .5 
             ),
 
             decoration: BoxDecoration(

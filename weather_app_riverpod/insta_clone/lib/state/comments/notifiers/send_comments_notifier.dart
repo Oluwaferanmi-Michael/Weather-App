@@ -18,6 +18,8 @@ class SendCommentsNotifier extends StateNotifier<IsLoading> {
     required String comment
   }) async {
 
+    isLoading = true; 
+    
     final payload = CommentPayload(fromUserId: fromUserId, fromPostId: fromPostId, comment: comment);
 
     await FirebaseFirestore.instance.collection(FirebaseCollectionName.comments).add(payload);

@@ -18,7 +18,7 @@ class CreateNewPostView extends StatefulHookConsumerWidget {
   final FileType fileType;
   const CreateNewPostView({
     super.key,
-    required this.fileToPost,
+    required this.fileToPost, 
     required this.fileType
     });
 
@@ -62,7 +62,9 @@ class _CreateNewPostViewState extends ConsumerState<CreateNewPostView> {
               fileType: widget.fileType,
               message: message,
               postSettings: postSettings,
-              userId: userId);
+              userId: userId
+              );
+              
               isUploaded.log;
             if (isUploaded && mounted) { 
               Navigator.of(context).pop();

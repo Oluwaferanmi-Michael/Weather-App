@@ -24,7 +24,7 @@ class Post{
     required this.postId,
     required Map<String, dynamic> json
   }) : userId = json[PostKey.userId],
-       message = json[PostKey.message],
+       message = json[PostKey.message], 
        createdAt = (json[PostKey.createdAt] as Timestamp).toDate(),
        thumbnailUrl = json[PostKey.thumbnailUrl],
        fileUrl = json[PostKey.fileUrl],
